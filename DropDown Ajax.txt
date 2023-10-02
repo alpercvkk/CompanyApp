@@ -1,0 +1,35 @@
+///// MVC AJAX İşlemleri //////
+
+ilk olarak AJAX işlemi yapacaksan eğer wwwroot > jquery >dist içerisinde dosyayı sürekle bırak hmtl içerisine. 
+
+aşağıdaki yeterli olacaktır.
+
+<script src="c:\users\alper\source\repos\myajaxislemleri\myajaxislemleri\wwwroot\lib\jquery\dist\jquery.min.js"></script>
+
+
+@section Scripts {
+
+  <script>
+
+    function changeLike(event){
+      const selectedValue = event.target.value; // true, false veya null gelicek
+
+      $.ajax({
+        method:'POST',
+        url:'Product/Filter', // bu url git view componenti tekrar ekrana bas.
+        data:selectedValue,
+        contentType:'application/json',
+        success:function(viewComponentResult){
+                console.log('result', viewComponentResult);
+                $("#productList").empty(); // id productList divin içini boşalt.
+                $("#productList").html(viewComponentResult); // id productList içerisine gelen güncel html contenti bas.
+        },
+        error:function(err){
+          console.log('err', err);
+        }
+
+      })
+    }
+
+  </script>
+  }

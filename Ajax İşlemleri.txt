@@ -1,0 +1,195 @@
+///// MVC AJAX İşlemleri //////
+
+ilk olarak AJAX işlemi yapacaksan eğer wwwroot > jquery >dist içerisinde dosyayı sürekle bırak hmtl içerisine. 
+
+aşağıdaki yeterli olacaktır.
+
+<script src="c:\users\alper\source\repos\myajaxislemleri\myajaxislemleri\wwwroot\lib\jquery\dist\jquery.min.js"></script>
+
+1 - Veri Listeleme 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        [HttpGet]
+        public IActionResult WriterList()
+        {
+            var jsonWriters = JsonConvert.SerializeObject(writers);
+
+            return Json(jsonWriters);
+        }
+
+ HTML KISMI >>   
+
+    @section scripts{
+    <script>
+        $("#btngetlist").click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                method: "Get",
+                url: "/Writer/WriterList",
+                success: function (func) {
+                    let w = jQuery.parseJSON(func);
+                    console.log(w);
+                    let tablehtml = "<div class='ibox-title'><h5>Yazar Listesi</h5></div><div class='ibox-content'><table class='table'><thead><tr><th> Yazar ID</th> <th> Yazar Adı </th></tr></thead>";
+                    $.each(w, (index, value) => {
+                        tablehtml += `<tr><td>${value.Id}</td> <td>${value.Name}</td></tr>`
+                    });
+                    tablehtml += "</table></div>";
+                    $("#writerlist").html(tablehtml);
+                }
+            });
+        });
+    </script>
+    }
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2--> Veri yakalamak için
+
+  [HttpGet]
+
+ public IActionResult GetWriterByID(int writerid)
+        {
+            var findWriter = writers.FirstOrDefault(x => x.Id == writerid);
+
+            var jsonWriters = JsonConvert.SerializeObject(findWriter);
+
+            return Json(jsonWriters);
+        }
+
+HTML KISMI >>   
+
+      @section scripts{
+    <script>
+        $("#btngetByID").click(x => {
+            let id = $("#writerid").val();
+            console.log(id);
+
+            $.ajax({
+                contentType: `application/json`,
+                dataType: `json`,
+                method: `Get`,
+                url: `/Writer/GetWriterByID/`,
+                data: { writerid: id },
+                success: function (func) {
+                    let w = jQuery.parseJSON(func);
+                    console.log(w);
+
+                    let getValue = `<table class= "table table-bordered border-primary"> <thead> <th> Id </th> <th> Name </th>  </thead> <tbody>  <td> ${w.Id} </th> <td> ${w.Name} </th>  </tbody>  </table>`;
+
+                    $("#writerget").html(getValue);
+                }
+            });
+        });
+
+    </script>
+    }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3- Ekleme İşlemi
+
+[HttpPost]
+        public IActionResult AddWriter(WriterClass w)
+        {
+            writers.Add(w);
+            var jsonWriters = JsonConvert.SerializeObject(w);
+            return Json(jsonWriters);    
+        }
+
+HTML KISMI >>   
+
+  @section scripts{
+    <script>
+
+        $("#btnaddwriter").click(function () {
+
+            let writer = {
+                Id: $("#txtwriterid").val(),
+                Name: $("#txtwritername").val()
+            };
+
+            $.ajax({
+
+                type: "Post",
+                url: "/Writer/AddWriter",
+                data: writer,
+                success: function (func) {
+
+                    let Result = jQuery.parseJSON(func);
+                    alert("Yazar Ekleme başarı ile gerçekleşti");
+                }
+            });
+
+        });
+
+    </script>
+    }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 4 --> Silme İşlemi
+
+ [HttpPost]
+        public IActionResult DeleteWriter(int id)
+        {
+            var writer = writers.FirstOrDefault(x => x.Id == id);
+            var Dwriter = writers.Remove(writer);
+
+            return Json(Dwriter);
+        }
+
+HTML KISMI >>   
+      @section scripts{
+    <script>
+        $("#btndeletewriter").click(x => {
+
+            let id = $("#txtdeleteid").val();
+s
+            $.ajax({
+                url: '/Writer/DeleteWriter/' + id,
+                method: 'Post',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (func) {
+
+                    let Result = jQuery.parseJSON(func);
+                    alert("Yazar silme işlemi başarı ile gerçekleşti");
+                }
+            });
+        });
+    </script>
+    }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5--> Güncelleme İşlemi 
+
+ [HttpPost]
+        public IActionResult UpdateWriter(WriterClass w)
+        {
+            var writer = writers.FirstOrDefault(x => x.Id == w.Id);
+
+            writer.Name = w.Name;
+
+            var jsonWriter = JsonConvert.SerializeObject(w);     
+
+            return Json(jsonWriter);
+        }
+
+HTML KISMI >> 
+ @section scripts{
+    <script>
+        $("#btnupdatewriter").click(function () {
+
+            let writer = {
+                Id: $("#txtupdateid").val(),
+                Name: $("#txtupdatename").val()
+            };
+
+
+            $.ajax({
+                method: 'Post',
+                url: '/Writer/UpdateWriter/',
+                data: writer,
+                success: function (func) {
+
+                    alert("Güncelleme İşlemi Yapıldı");
+                }
+
+            });
+        });
+    </script>
+    }

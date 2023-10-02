@@ -1,0 +1,83 @@
+View Component Kullanmak için 
+-----------------------------------
+
+1 - View Klasörü içerisindeki  shrared içine   "Components" adında bir klasör ekle.
+
+2 - Oluşturulan klasör içerisine view oluşturmak istediğin alt bir klasör daha tanımla kapsayıcı bir isim olsun(Mesela City..)
+
+3 - Oluşturulan alt klasör içerisine bir class ekle ve adını  "...ViewComponent.cs" olarak belirt. ("..." kısmı alt klasör adı ile aynı olacak!! örneğin --> "CityViewComponent" )
+
+4 - Bu class :ViewComponent den kalıtım alacak!!
+
+5-  Bulunduğu Controller içerisine ;
+
+      public IActionResult City([FromBody] int? selectedValue )
+        {
+            return ViewComponent("City", new { cityId =selectedValue});
+        }
+
+
+6-   public class CityViewComponent:ViewComponent
+    {
+        public IViewComponentResult Invoke(int? cityId)
+        {
+            var db = new WorkersPanelDbContext();
+
+            if (cityId != null)
+            {
+                var values = db.Counties.Where(x => x.CityId == cityId).ToList();
+
+                return View(values);
+            }
+            else
+            {
+                var values = new List<Data.Entities.County>();
+                return View(values);
+            }
+
+        }
+    }
+
+
+7- Alt Klasör içerisine "Default.cshtml" adında bir css/html sayfası açılacak ve frontend kısmı yazılacak içerisine ;
+
+örneğin ; @model List<County>
+        
+               @foreach (var item in Model)
+              {
+                 <option value="@item.Id"> @item.Name </option>
+              
+              }
+
+
+
+8- AJAX KISMININ YAZIMI GEREKLİDİR!!!!!
+
+   <script src="~/lib/jquery/dist/jquery.min.js"></script>     @*  www.root içerisindel lib> jquery > dist > sürükle bırak sadece min.js yeterli olacaktır. *@
+
+<script>
+
+    function city(event) {
+        const selectedValue = event.target.value;
+
+        $.ajax({
+            method: 'POST',
+            url: '/Personel/City',                              // bu url git view componenti tekrar ekrana bas.
+            data: selectedValue,
+            contentType: 'application/json',
+            success: function (viewComponentResult) {
+                $("#countyselect").empty();                    // id productList divin içini boşalt.
+                $("#countyselect").html(viewComponentResult); // id productList içerisine gelen güncel html contenti bas.
+            },
+            error: function (err) {
+                console.log('err', err);
+            }
+
+        })
+    }
+
+</script>
+
+
+
+            
