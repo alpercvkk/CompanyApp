@@ -9,53 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CompanyApp
 build_property.RootNamespace = CompanyApp
-build_property.ProjectDir = C:\Users\Alper\source\repos\CompanyApp\CompanyApp\
+build_property.ProjectDir = C:\Users\Alper\Desktop\Github\CompanyApp\CompanyApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Alper\source\repos\CompanyApp\CompanyApp
+build_property.MSBuildProjectDirectory = C:\Users\Alper\Desktop\Github\CompanyApp\CompanyApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Account/Login.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Personel/AddPersonel.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Personel/AddPersonel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcQWRkUGVyc29uZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Personel/Delete.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Personel/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Personel/PersonelList.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Personel/PersonelList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcUGVyc29uZWxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Personel/Update.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Personel/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uZWxcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Shared/Components/City/Default.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Shared/Components/City/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2l0eVxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Shared/Error.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/_ViewImports.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/_ViewStart.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Alper/source/repos/CompanyApp/CompanyApp/Views/Shared/_Layout.cshtml]
+[C:/Users/Alper/Desktop/Github/CompanyApp/CompanyApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6eoh2va859

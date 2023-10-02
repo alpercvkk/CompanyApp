@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alper\\source\\repos\\CompanyApp\\CompanyApp\\CompanyApp.csproj": {}
+    "C:\\Users\\Alper\\Desktop\\Github\\CompanyApp\\CompanyApp\\CompanyApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alper\\source\\repos\\CompanyApp\\CompanyApp\\CompanyApp.csproj": {
+    "C:\\Users\\Alper\\Desktop\\Github\\CompanyApp\\CompanyApp\\CompanyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alper\\source\\repos\\CompanyApp\\CompanyApp\\CompanyApp.csproj",
+        "projectUniqueName": "C:\\Users\\Alper\\Desktop\\Github\\CompanyApp\\CompanyApp\\CompanyApp.csproj",
         "projectName": "CompanyApp",
-        "projectPath": "C:\\Users\\Alper\\source\\repos\\CompanyApp\\CompanyApp\\CompanyApp.csproj",
+        "projectPath": "C:\\Users\\Alper\\Desktop\\Github\\CompanyApp\\CompanyApp\\CompanyApp.csproj",
         "packagesPath": "C:\\Users\\Alper\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alper\\source\\repos\\CompanyApp\\CompanyApp\\obj\\",
+        "outputPath": "C:\\Users\\Alper\\Desktop\\Github\\CompanyApp\\CompanyApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alper\\AppData\\Roaming\\NuGet\\NuGet.Config",
