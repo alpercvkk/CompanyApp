@@ -1,0 +1,25 @@
+﻿@using CompanyApp.Data.Entities;
+@using CompanyApp.Controllers;
+
+
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+@model Personel
+
+<div class="card">
+    <h5 class="card-header" style="color:red">Personel Silme İşlemi</h5>
+    <div class="card-body">
+        <p class="card-text"> @Model.Id.'ye Sahip olan "@Model.Name @Model.LastName" adlı personelin kaydını silmek istediğinize emin misiniz? </p>
+        <form asp-action="Delete" asp-controller="Personel" method="post" >  
+            <span>
+                <input type="hidden" asp-for="Id" />
+                <button a class="btn btn-secondary" type="submit"> Sil </button>
+                <a asp-action="PersonelList" asp-controller="Personel" class="btn btn-primary" type="button"> Vazgeç  </a>
+            </span>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,144 @@
+﻿@using CompanyApp.Models;
+@using CompanyApp.Controllers;
+@using CompanyApp.Data.Entities;
+
+@{
+    ViewData["Title"] = "AddPersonel";
+}
+@model Personel
+
+<h1 class="mb-4">AddPersonel</h1>
+
+
+<div class="row mb-3">
+
+
+
+    @if (ViewBag.Message is not null)
+    {
+        <span class="btn btn-success"> @ViewBag.Message </span>
+    }
+    else
+    {
+        <span class="alert-dark"> @ViewBag.Message2 </span>
+    }
+
+
+
+</div>
+
+<div class="container">
+
+
+    <form asp-controller="Personel" asp-action="AddPersonel">
+        <div class="row - mb-3">
+            <div class="col-1"> <label> İsim: </label>   </div>
+            <div class="col-4">
+                <input asp-for="Name" type="text" class="form-control" />
+                <span style="color:red" asp-validation-for="Name"></span>
+            </div>
+
+        </div>
+        <div class="row - mb-3">
+            <div class="col-1"> <label> Soyisim: </label>   </div>
+            <div class="col-4">
+                <input asp-for="LastName" type="text" class="form-control" />
+                <span style="color:red" asp-validation-for="LastName"></span>
+            </div>
+
+        </div>
+        <div class="row - mb-3">
+            <div class="col-1"> <label> Yaş: </label>   </div>
+            <div class="col-11">
+                <input asp-for="Age" type="number" class="form-check" />
+                <span style="color:red" asp-validation-for="Age"></span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-1"> <label>Cinsiyet:  </label></div>
+            <div class="col">
+                @Html.RadioButtonFor(Model => Model.Gender, "E", false) @Html.Label("Erkek")
+                @Html.RadioButtonFor(Model => Model.Gender, "K", false) @Html.Label("Kadın")
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-1"> <label> Şehir: </label> </div>
+            <div class="col-4">
+                <select onchange="City(event)" class="form-select" aria-label="Default select example" asp-for="CityId">
+                    <option disabled="disabled" selected>Lütfen il seçiniz</option>
+
+
+                    @foreach (var item in (List<City>)ViewBag.Cities)
+                    {
+                        <option value="@item.Id"> @item.Name </option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-1" <label> İlçe:</label></div>
+            <div class="col-4">
+                <select id="CountySelect" class="form-select" aria-label="Default select example" asp-for="CountyId">
+                    <option disabled="disabled" selected>Lütfen ilçe seçiniz</option>
+
+                    @await Component.InvokeAsync("City")
+
+                   
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-1"> <label> Adres:</label></div>
+            <div class="col-4 form-floating">
+                <textarea asp-for="Address" class="form-control" id="floatingTextarea"></textarea>
+                <span style="color:red" asp-validation-for="Address"></span>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-center col-lg-9">
+            <div class="col-auto">
+                <span>
+                    <a asp-controller="Personel" asp-action="PersonelList" class="btn btn-dark">Vazgeç </a>
+                    <button type="submit" class="btn btn-primary"> Ekle </button>
+                </span>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+
+    <script>
+
+        function City(event) {
+            const selectedValue = event.target.value; // true, false veya null gelicek
+
+            $.ajax({
+                method: 'POST',
+                url: '/Personel/City', // bu url git view componenti tekrar ekrana bas.
+                data: selectedValue,
+                contentType: 'application/json',
+                success: function (viewComponentResult) {
+                    console.log('result', viewComponentResult);
+                    $("#CountySelect").empty(); // id productList divin içini boşalt.
+                    $("#CountySelect").html(viewComponentResult); // id productList içerisine gelen güncel html contenti bas.
+                },
+                error: function (err) {
+                    console.log('err', err);
+                }
+
+            })
+        }
+
+    </script>
+ 
+
+
